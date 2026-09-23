@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void) {
+    double height, weight;
+
+    scanf("%lf %lf", &height, &weight);
+
+    double bmi = weight / (height * height);
+
+    printf("bmi=%.2f\n", bmi);
+
+    return 0;
+}
