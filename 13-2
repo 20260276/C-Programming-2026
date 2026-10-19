@@ -1,0 +1,37 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int number;
+    long long sum = 0;
+    long long count = 0;
+
+    printf("정수를 입력하세요. 0을 입력하면 종료합니다.\n");
+
+    while (1) {
+        printf("정수 입력: ");
+
+        if (scanf("%d", &number) != 1) {
+            printf("입력 오류입니다.\n");
+            return 1;
+        }
+
+        if (number == 0) {
+            break;
+        }
+
+        sum += number;
+        count++;
+    }
+
+    if (count == 0) {
+        printf("입력된 데이터가 없습니다.\n");
+    }
+    else {
+        printf("합계: %lld\n", sum);
+        printf("평균: %.2f\n", (double)sum / count);
+    }
+
+    return 0;
+}
