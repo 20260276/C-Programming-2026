@@ -1,0 +1,60 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int year, month, days;
+    int isLeapYear;
+
+    printf("연도와 월 입력(예: 2024 2): ");
+    if (scanf("%d %d", &year, &month) != 2 || year <= 0) {
+        printf("양의 정수 연도와 올바른 월을 입력하세요.\n");
+        return 1;
+    }
+
+    isLeapYear = (year % 400 == 0) ||
+                 (year % 4 == 0 && year % 100 != 0);
+
+    switch (month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        days = 31;
+        break;
+
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        days = 30;
+        break;
+
+    case 2:
+        if (isLeapYear) {
+            days = 29;
+        }
+        else {
+            days = 28;
+        }
+        break;
+
+    default:
+        printf("월은 1∼12 사이로 입력하세요.\n");
+        return 1;
+    }
+
+    printf("%d년 %d월은 %d일까지 있습니다.\n", year, month, days);
+
+    if (isLeapYear) {
+        printf("%d년은 윤년입니다.\n", year);
+    }
+    else {
+        printf("%d년은 평년입니다.\n", year);
+    }
+
+    return 0;
+}
