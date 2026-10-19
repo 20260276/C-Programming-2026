@@ -1,0 +1,64 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int menu;
+    double a, b;
+
+    do {
+        printf("\n1. 덧셈\n");
+        printf("2. 뺄셈\n");
+        printf("3. 곱셈\n");
+        printf("4. 나눗셈\n");
+        printf("0. 종료\n");
+        printf("선택: ");
+
+        if (scanf("%d", &menu) != 1) {
+            printf("입력 오류입니다.\n");
+            return 1;
+        }
+
+        if (menu == 0) {
+            break;
+        }
+
+        if (menu < 1 || menu > 4) {
+            printf("올바른 메뉴를 선택하세요.\n");
+            continue;
+        }
+
+        printf("두 숫자 입력: ");
+        if (scanf("%lf %lf", &a, &b) != 2) {
+            printf("입력 오류입니다.\n");
+            return 1;
+        }
+
+        switch (menu) {
+        case 1:
+            printf("결과: %.2f\n", a + b);
+            break;
+
+        case 2:
+            printf("결과: %.2f\n", a - b);
+            break;
+
+        case 3:
+            printf("결과: %.2f\n", a * b);
+            break;
+
+        case 4:
+            if (b == 0) {
+                printf("0으로 나눌 수 없습니다.\n");
+            }
+            else {
+                printf("결과: %.2f\n", a / b);
+            }
+            break;
+        }
+    } while (menu != 0);
+
+    printf("프로그램을 종료합니다.\n");
+
+    return 0;
+}
