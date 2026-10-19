@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int number, i;
+    int isPrime = 1;
+
+    printf("정수 입력: ");
+    if (scanf("%d", &number) != 1) {
+        printf("정수를 입력하세요.\n");
+        return 1;
+    }
+
+    if (number < 2) {
+        isPrime = 0;
+    }
+    else {
+        for (i = 2; i <= number / i; i++) {
+            if (number % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if (isPrime) {
+        printf("%d은(는) 소수입니다.\n", number);
+    }
+    else {
+        printf("%d은(는) 소수가 아닙니다.\n", number);
+    }
+
+    return 0;
+}
