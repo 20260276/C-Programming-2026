@@ -1,0 +1,44 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int month, days;
+
+    printf("월 입력(1∼12): ");
+    if (scanf("%d", &month) != 1) {
+        printf("정수를 입력하세요.\n");
+        return 1;
+    }
+
+    switch (month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        days = 31;
+        break;
+
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        days = 30;
+        break;
+
+    case 2:
+        days = 28;
+        break;
+
+    default:
+        printf("1∼12 사이의 월을 입력하세요.\n");
+        return 1;
+    }
+
+    printf("%d월은 %d일까지 있습니다.\n", month, days);
+
+    return 0;
+}
