@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int n, i;
+    long long evenSum = 0;
+    long long oddSum = 0;
+
+    printf("N 입력(1∼1000000): ");
+    if (scanf("%d", &n) != 1 || n < 1 || n > 1000000) {
+        printf("1∼1000000 사이의 정수를 입력하세요.\n");
+        return 1;
+    }
+
+    for (i = 1; i <= n; i++) {
+        if (i % 2 == 0) {
+            evenSum += i;
+        }
+        else {
+            oddSum += i;
+        }
+    }
+
+    printf("짝수의 합: %lld\n", evenSum);
+    printf("홀수의 합: %lld\n", oddSum);
+
+    return 0;
+}
